@@ -18,34 +18,34 @@ const PrivateRoute = ({ children }) => {
 
 export default function App() {
 
-  const [serverReady, setServerReady] = useState(false);
+  // const [serverReady, setServerReady] = useState(false);
 
-  useEffect(() => {
-    const checkServer = async () => {
-      try {
-        const res = await api.get("/");
-        if (res.data === "Ok") {
-          setServerReady(true);
-        }
-      } catch (err) {
-        console.log("Server not ready... retrying");
-        setTimeout(checkServer, 1000);
-      }
-    };
+  // useEffect(() => {
+  //   const checkServer = async () => {
+  //     try {
+  //       const res = await api.get("/");
+  //       if (res.data === "Ok") {
+  //         setServerReady(true);
+  //       }
+  //     } catch (err) {
+  //       console.log("Server not ready... retrying");
+  //       setTimeout(checkServer, 1000);
+  //     }
+  //   };
 
-    checkServer();
-  }, []);
+  //   checkServer();
+  // }, []);
 
-  if (!serverReady) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-100 dark:bg-slate-900">
-        <div className="w-full flex flex-col items-center justify-center py-12">
-          <div className="animate-spin rounded-full h-10 w-10 border-4 border-slate-300 border-t-slate-700 dark:border-t-slate-200" />
-          <p className="mt-4 text-sm text-gray-500">Connecting to server...</p>
-        </div>
-      </div>
-    );
-  }
+  // if (!serverReady) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center bg-slate-100 dark:bg-slate-900">
+  //       <div className="w-full flex flex-col items-center justify-center py-12">
+  //         <div className="animate-spin rounded-full h-10 w-10 border-4 border-slate-300 border-t-slate-700 dark:border-t-slate-200" />
+  //         <p className="mt-4 text-sm text-gray-500">Connecting to server...</p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
