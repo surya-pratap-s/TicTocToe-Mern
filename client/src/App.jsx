@@ -24,7 +24,7 @@ export default function App() {
     const checkServer = async () => {
       try {
         const res = await api.get("/");
-        if (res.data.status === "Ok") {
+        if (res.data === "Ok") {
           setServerReady(true);
         }
       } catch (err) {
@@ -39,8 +39,10 @@ export default function App() {
   if (!serverReady) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-100 dark:bg-slate-900">
-        <Loading />
-        <p className="mt-4 text-sm text-gray-500">Connecting to server...</p>
+        <div className="w-full flex items-center justify-center py-12">
+          <div className="animate-spin rounded-full h-10 w-10 border-4 border-slate-300 border-t-slate-700 dark:border-t-slate-200" />
+          <p className="mt-4 text-sm text-gray-500">Connecting to server...</p>
+        </div>
       </div>
     );
   }
